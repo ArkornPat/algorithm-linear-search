@@ -22,6 +22,34 @@ const products = [
   { name: "Backpack", quantity: 12, zone: "G4" },
 ];
 
+// function findIfProductsAvailable(products ,targetProduct,targetQuantity){
+//     for(let i = 0; i < products.length; i++){
+//         if(products[i].name === targetProduct && targetQuantity <= products[i].quantity){
+
+//             return `${targetQuantity} ${targetProduct}(s) are available at ${products[i].zone}`
+            
+//         }else if(products[i].name === targetProduct && targetQuantity > products[i].quantity){
+
+//             return `Sorry, we've got only ${products[i].quantity} ${products[i].name}(s) available at ${products[i].zone}`
+//         }
+//     }
+//     return `We don't have ${targetProduct}`
+// }
+function findIfProductsAvailable(products, targetProduct, targetQuantity) {
+    const product = products.find(product => product.name === targetProduct);
+
+    if (!product) {
+        return `We don't have ${targetProduct}`;
+    }
+
+    if (targetQuantity <= product.quantity) {
+        return `${targetQuantity} ${targetProduct}(s) are available at ${product.zone}`;
+    } else {
+        return `Sorry, we've got only ${product.quantity} ${product.name}(s) available at ${product.zone}`;
+    }
+}
+
+
 console.log(findIfProductsAvailable(products, "Chocolate Milk", 3));
 // 3 Chocolate Milk(s) are available at Zone A1
 

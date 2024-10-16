@@ -18,5 +18,19 @@ const products = [
   { id: 10, name: "Running Shoes", price: 90, category: "Clothing", zone: "H" },
 ];
 
+function findIfProductsExist(products, targetProduct) {
+    let i = products.findIndex(product => product.name === targetProduct);
+    return i;
+}
+
+// function findIfProductsExist(products, targetProduct) {
+//     for (let i = 0; i < products.length; i++) {
+//         if (products[i].name === targetProduct) {
+//             return i;  
+//         }
+//     }
+//     return -1;  
+// }
+
 console.log(findIfProductsExist(products, "Running Shoes")); // 3
 console.log(findIfProductsExist(products, "Pepsi")); // -1
